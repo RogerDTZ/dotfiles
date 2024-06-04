@@ -34,12 +34,13 @@ vim.o.conceallevel=2
 -- Setup column limit prompt line
 vim.opt.colorcolumn = "81"
 
-vim.opt.cursorline = true
-
 -- [[ Basic Keymaps ]]
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- Tagbar
+vim.g.tagbar_show_balloon = 0
 
