@@ -25,6 +25,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bogado/file-line'
 Plugin 'joe-skb7/cscope-maps'
+Plugin 'tpope/vim-sleuth'
 " Plugin 'yggdroot/indentline'
 " Plugin 'sheerun/vim-polyglot'
 
@@ -75,7 +76,6 @@ autocmd Filetype c,cpp,rust match ExtraWhitespace /\s\+$/
 " autocmd InsertLeave *.c match ExtraWhitespace /\s\+$/
 " autocmd BufWinLeave *.c call clearmatches()
 
-set number
 set cursorline
 set foldmethod=syntax
 set foldlevel=99
@@ -97,6 +97,14 @@ let g:airline#extensions#whitespace#enabled = 0
 
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
+
+" Relative line number
+set number
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
 
 " Legacy settings:
 " syntax on
