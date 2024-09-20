@@ -44,3 +44,8 @@ vim.g.maplocalleader = ' '
 -- Tagbar
 vim.g.tagbar_show_balloon = 0
 
+--- vimtex
+vim.cmd('filetype plugin on')
+vim.g.vimtex_view_method = "zathura"
+vim.g.maplocalleader = ","
+

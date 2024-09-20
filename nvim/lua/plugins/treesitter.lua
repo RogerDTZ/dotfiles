@@ -8,7 +8,10 @@ require('nvim-treesitter.configs').setup {
     'html', 'css', 'javascript', 'yaml', 'json', 'toml',
   },
 
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    disable = { "latex", },
+  },
   indent = { enable = true },
   incremental_selection = {
     enable = true,
